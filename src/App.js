@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import Header from './components/Header/Header';
+
+const API_URL = 'https://narutodb.xyz/api';
+
+const getAllCharacters = async () => {
+  return fetch(`${API_URL}/character?page=1&limit=50`).then((resp) =>
+    resp.json()
+  );
+};
 
 function App() {
+  const [charactersData, setCharactersData] = useState({});
+  const [searchedCharacter, setSearchedCharacter] = useState('');
+
+  useEffect(() => {
+    getAllCharacters()
+      .then((data) => setCharactersData(data))
+      .catch((e) => {
+        console.warn(e);
+      });
+  }, []);
+
+  console.log(charactersData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Header />
+      <main>
+        <ul></ul>
+      </main>
     </div>
   );
 }
