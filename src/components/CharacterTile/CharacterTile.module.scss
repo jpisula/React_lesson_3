@@ -1,0 +1,14 @@
+.characterTile {
+  padding: 15px 25px;
+
+  background-color: rgb(17, 17, 17);
+  border-radius: 12px;
+
+  display: flex;
+  gap: 25px;
+
+  img {
+    width: 200px;
+    object-fit: cover;
+  }
+}

@@ -7,4 +7,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  .headerSearch {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    input {
+      height: 30px;
+    }
+  }
 }
