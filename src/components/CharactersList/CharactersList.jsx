@@ -8,8 +8,12 @@ const CharactersList = ({ characters }) => {
     <section className={clsx('container', styles.charactersListSection)}>
       <h2>Lista wszystkich postaci:</h2>
       <ul className={styles.charactersList}>
-        {characters.map((character) => (
-          <CharacterTile character={character} key={uuidv4()} />
+        {characters.map((character, index) => (
+          <CharacterTile
+            character={character}
+            isReversed={index % 2}
+            key={uuidv4()}
+          />
         ))}
       </ul>
     </section>
